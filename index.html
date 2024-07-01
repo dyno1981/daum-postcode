@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>주소 검색</title>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+</head>
+<body>
+<h1>주소 검색</h1>
+<button onclick="execDaumPostcode()">우편번호 찾기</button>
+<script>
+  function execDaumPostcode() {
+    new daum.Postcode({
+      oncomplete: function(data) {
+        const addressData = {
+          roadAddress: data.roadAddress,
+          jibunAddress: data.jibunAddress,
+          zonecode: data.zonecode,
+          sigungu: data.sigungu,
+          bname: data.bname
+        };
+        window.parent.postMessage(addressData, '*'); // 부모 창으로 메시지 전송
+      }
+    }).open();
+  }
+</script>
+</body>
+</html>
