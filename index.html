@@ -23,7 +23,7 @@
         window.close(); // 팝업 창 닫기
       },
       onclose: function(state) {
-        if (state === 'FORCE_CLOSE') {
+        if (state === 'FORCE_CLOSE' || state === 'COMPLETE_CLOSE') {
           const addressData = { error: 'User closed the window manually' };
           window.parent.postMessage(addressData, '*'); // 부모 창으로 메시지 전송
           window.close(); // 팝업 창 닫기
