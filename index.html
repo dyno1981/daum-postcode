@@ -23,6 +23,10 @@
       }
     }).open();
   }
+  // 페이지 로드 시 execDaumPostcode 함수를 자동으로 실행
+  window.onload = function() {
+    execDaumPostcode();
+  };
 </script>
 </body>
 </html>
